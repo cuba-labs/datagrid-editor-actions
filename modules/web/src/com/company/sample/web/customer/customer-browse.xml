@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.sample.web.customer.CustomerBrowse"
+        focusComponent="customersDataGrid"
+        lookupComponent="customersDataGrid"
+        messagesPack="com.company.sample.web.customer">
+    <dsContext>
+        <collectionDatasource id="customersDs"
+                              class="com.company.sample.entity.Customer"
+                              view="_local">
+            <query>
+                <![CDATA[select e from sample$Customer e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="customersDataGrid"
+            spacing="true">
+        <dataGrid id="customersDataGrid"
+                  editorEnabled="true"
+                  datasource="customersDs"
+                  width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column property="name"/>
+                <column property="email"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="customersDataGrid.create"/>
+                <button id="editBtn"
+                        action="customersDataGrid.edit"/>
+                <button id="removeBtn"
+                        action="customersDataGrid.remove"/>
+            </buttonsPanel>
+        </dataGrid>
+    </layout>
+</window>
