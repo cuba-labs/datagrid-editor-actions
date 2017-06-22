@@ -209,6 +209,7 @@ task restart(dependsOn: ['stop', ':app-core:deploy', ':app-web:deploy'], descrip
 
 task wrapper(type: Wrapper) {
     gradleVersion = '3.1'
+    distributionUrl = distributionUrl.replace("bin", "all")
 }
 
 apply from: 'extra.gradle'
